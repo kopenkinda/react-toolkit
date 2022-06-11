@@ -1,0 +1,33 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/mantine-toolkit/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/mantine-toolkit",
+        "main": "packages/mantine-toolkit/src/index.ts",
+        "tsConfig": "packages/mantine-toolkit/tsconfig.lib.json",
+        "assets": ["packages/mantine-toolkit/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/mantine-toolkit/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/mantine-toolkit"],
+      "options": {
+        "jestConfig": "packages/mantine-toolkit/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["react"]
+}
